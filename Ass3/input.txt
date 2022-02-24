@@ -1,0 +1,16 @@
+keyword int if else
+operator = > - +
+identifier i j k age print
+constant 1 2 3 17
+delimiter ; , { }
+
+int i;
+
+if age > 17 {
+    print age
+}
+else {
+    print age + 1
+}
+
+weird
