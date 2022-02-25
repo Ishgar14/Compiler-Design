@@ -15,34 +15,34 @@
 ^constant       {state = CONSTANT;}
 
 
-[a-zA-Z0-9]+|[=;{}<>\+\-] {
+[a-zA-Z0-9]+|[=;\(\){}<>\+\-] {
     if (state != LOOKUP)
         append(list, yytext, state);
     else {
         // printf("Looking up \"%s\"\n", yytext);
         switch (lookup(list, yytext)) {
             case OPERATOR:
-                printf("%s operator\n", yytext);
+                printf("%-10s operator\n", yytext);
                 break;
             case IDENTIFIER:
-                printf("%s identifier\n", yytext);
+                printf("%-10s identifier\n", yytext);
                 break;
             case KEYWORD:
-                printf("%s keyword\n", yytext);
+                printf("%-10s keyword\n", yytext);
                 break;
             case DELIMITER:
-                printf("%s delimiter\n", yytext);
+                printf("%-10s delimiter\n", yytext);
                 break;
             case CONSTANT:
-                printf("%s constant\n", yytext);
+                printf("%-10s constant\n", yytext);
                 break;
             default:
-                printf("%s unknown\n", yytext);
+                printf("%-10s unknown\n", yytext);
         }
     }
 }
 
-.   {ECHO;}
+.   {;}
 
 %%
 
