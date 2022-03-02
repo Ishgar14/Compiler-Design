@@ -1,16 +1,16 @@
 keyword int if else
-operator = > - +
-identifier i j k age print
-constant 1 20 17
+operator = > +
+identifier age print
+constant 20 17
 delimiter ; , { } ( )
 
 int age = 20;
 
 if (age > 17) {
-    print(age)
+    print(age);
 }
 else {
-    print(age + 1)
+    print(age + 1);
 }
 
 weird
