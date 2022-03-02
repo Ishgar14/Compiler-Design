@@ -2,9 +2,10 @@ keyword int if
 operator = > +
 identifier age print
 constant 20 17
-delimiter ; , { } ( )
 
 int age = 20;
+
+delimiter ; , { } ( )
 
 if (age > 17) {
     print(age);
