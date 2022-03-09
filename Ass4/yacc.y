@@ -29,14 +29,15 @@ expression:
 | expression '/' expression             {$$ = $1 / $3;}
 | expression '^' expression             {$$ = pow($1, $3);}
 | expression '%' expression             {$$ = fmod($1, $3);}
+| '(' expression ')'                    {$$ = $2;}
 | functionCall                          {$$ = $1;}
 | NUMBER                                {$$ = $1;}
 ;
 
 functionCall:
-SIN NUMBER      {$$ = sin($2);}
-COS NUMBER      {$$ = cos($2);}
-TAN NUMBER      {$$ = tan($2);}
+SIN NUMBER          {$$ = sin(to_radian($2));}
+| COS NUMBER        {$$ = cos(to_radian($2));}
+| TAN NUMBER        {$$ = tan(to_radian($2));}
 ;
 
 %%
