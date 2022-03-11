@@ -52,15 +52,16 @@ trigonometric       {$$ = $1;}
 | arithmetic        {$$ = $1;}
 
 trigonometric:
-SIN NUMBER          {$$ = sin(to_radian($2));}
-| COS NUMBER        {$$ = cos(to_radian($2));}
-| TAN NUMBER        {$$ = tan(to_radian($2));}
+SIN expression          {$$ = sin(to_radian($2));}
+| COS expression        {$$ = cos(to_radian($2));}
+| TAN expression        {$$ = tan(to_radian($2));}
 ;
 
 arithmetic:
-LN NUMBER           {$$ = log($2);}
-| LOG NUMBER        {$$ = log($2) / log(10);}
-| SQRT NUMBER       {$$ = sqrt($2);}
+LN expression           {$$ = log($2);}
+| LOG expression        {$$ = log($2) / log(10);}
+| LOG NUMBER expression {$$ = log($3) / log($2);}
+| SQRT expression       {$$ = sqrt($2);}
 %%
 
 int yywrap() {
