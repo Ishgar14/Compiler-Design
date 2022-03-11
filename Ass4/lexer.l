@@ -9,11 +9,15 @@
 %%
 
 
-[0-9]+                  {yylval = atoi(yytext); return NUMBER;}
+[0-9]+(\.[0-9]+)?       {yylval.dval = atof(yytext); return NUMBER;}
 
 sin                     {return SIN;}
 cos                     {return COS;}
 tan                     {return TAN;}
+
+log                     {return LOG;}
+ln                      {return LN;}
+sqrt                    {return SQRT;}
 
 \n                      {return END;}
 
