@@ -3,7 +3,6 @@
     #include <stdlib.h>
     #include <math.h>
 
-    // #define YYSTYPE double
     #define PI 3.1415926535
     #define to_radian(x) x * PI / 180
 
@@ -48,27 +47,27 @@ expression:
 ;
 
 functionCall:
-trigonometric           {$$ = $1;}
-| arithmetic            {$$ = $1;}
+trigonometric                           {$$ = $1;}
+| arithmetic                            {$$ = $1;}
 
 trigonometric:
-SIN '(' expression ')'          {$$ = sin(to_radian($3));}
-| COS '(' expression ')'        {$$ = sin(to_radian($3));}
-| TAN '(' expression ')'        {$$ = tan(to_radian($3));}
-| SIN NUMBER                    {$$ = sin(to_radian($2));}
-| COS NUMBER                    {$$ = cos(to_radian($2));}
-| TAN NUMBER                    {$$ = tan(to_radian($2));}
+SIN '(' expression ')'                  {$$ = sin(to_radian($3));}
+| COS '(' expression ')'                {$$ = sin(to_radian($3));}
+| TAN '(' expression ')'                {$$ = tan(to_radian($3));}
+| SIN NUMBER                            {$$ = sin(to_radian($2));}
+| COS NUMBER                            {$$ = cos(to_radian($2));}
+| TAN NUMBER                            {$$ = tan(to_radian($2));}
 ;
 
 arithmetic:
-LN '(' expression ')'           {$$ = log($3);}
-| LOG '(' expression ')'        {$$ = log($3) / log(10);}
-| LOG NUMBER '(' expression ')' {$$ = log($4) / log($2);}
-| SQRT '(' expression ')'       {$$ = sqrt($3);}
-| LN NUMBER                       {$$ = log($2);}
-| LOG NUMBER                    {$$ = log($2) / log(10);}
-| LOG NUMBER NUMBER             {$$ = log($3) / log($2);}
-| SQRT NUMBER                   {$$ = sqrt($2);}
+LN '(' expression ')'                   {$$ = log($3);}
+| LOG '(' expression ')'                {$$ = log($3) / log(10);}
+| LOG NUMBER '(' expression ')'         {$$ = log($4) / log($2);}
+| SQRT '(' expression ')'               {$$ = sqrt($3);}
+| LN NUMBER                             {$$ = log($2);}
+| LOG NUMBER                            {$$ = log($2) / log(10);}
+| LOG NUMBER NUMBER                     {$$ = log($3) / log($2);}
+| SQRT NUMBER                           {$$ = sqrt($2);}
 
 %%
 
