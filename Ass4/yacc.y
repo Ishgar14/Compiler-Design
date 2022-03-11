@@ -31,7 +31,7 @@
 %%
 
 statement: 
-expression END                  {printf(" = %lf\n", $1); return 0;}
+expression END                          {printf(" = %lf\n", $1); return 0;}
 ;
 
 expression: 
@@ -48,8 +48,8 @@ expression:
 ;
 
 functionCall:
-trigonometric       {$$ = $1;}
-| arithmetic        {$$ = $1;}
+trigonometric           {$$ = $1;}
+| arithmetic            {$$ = $1;}
 
 trigonometric:
 SIN expression          {$$ = sin(to_radian($2));}
@@ -62,6 +62,7 @@ LN expression           {$$ = log($2);}
 | LOG expression        {$$ = log($2) / log(10);}
 | LOG NUMBER expression {$$ = log($3) / log($2);}
 | SQRT expression       {$$ = sqrt($2);}
+
 %%
 
 int yywrap() {
