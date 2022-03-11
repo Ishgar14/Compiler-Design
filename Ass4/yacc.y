@@ -53,7 +53,7 @@ functionCall:
 
 trigonometric:
   SIN '(' expression ')'                {$$ = sin(to_radian($3));}
-| COS '(' expression ')'                {$$ = sin(to_radian($3));}
+| COS '(' expression ')'                {$$ = cos(to_radian($3));}
 | TAN '(' expression ')'                {$$ = tan(to_radian($3));}
 
 | SIN NUMBER                            {$$ = sin(to_radian($2));}
