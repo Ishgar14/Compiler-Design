@@ -18,7 +18,7 @@
 %token AND OR 
 %token EQ NE GT GE LT LE
 %token PRINT SEMICOLON
-%token IDENTIFIER
+%token IDENTIFIER STRING
 
 %token NUMBER 
 
@@ -33,9 +33,13 @@ BLOCK:
     IF '(' CONDITION ')' '{' STATEMENT '}'                        {printf("Parsed successfully!\n");}
 |   IF '(' CONDITION ')' '{' STATEMENT '}' ELSE '{' STATEMENT '}' {printf("Parsed successfully!\n");}
 
-|   IF CONDITION ')' '{' STATEMENT '}'              {printf("Put '(' before condition\n");}
-|   IF '(' CONDITION '{' STATEMENT '}'              {printf("Put ')' after condition\n");}
-|   IF CONDITION '{' STATEMENT '}'                  {printf("Put '(' before condition and ')' after condition\n");}
+|   IF CONDITION ')' '{' STATEMENT '}'                            {printf("Put '(' before condition\n");}
+|   IF CONDITION ')' '{' STATEMENT '}' ELSE '{' STATEMENT '}'     {printf("Put '(' before condition\n");}
+
+|   IF '(' CONDITION '{' STATEMENT '}'                            {printf("Put ')' after condition\n");}
+|   IF '(' CONDITION '{' STATEMENT '}' ELSE '{' STATEMENT '}'     {printf("Put ')' after condition\n");}
+
+|   IF CONDITION '{' STATEMENT '}'                                {printf("Put '(' before condition and ')' after condition\n");}
 ;
 
 STATEMENT:
@@ -70,7 +74,7 @@ int yywrap() {
 }
 
 void yyerror (char const *s) {
-    fprintf(stderr, "%s: Unknown character '%s'\n", s, yytext);
+    /* fprintf(stderr, "%s: Unknown character '%s'\n", s, yytext); */
 }
 
 void main() {
