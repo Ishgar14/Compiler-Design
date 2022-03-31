@@ -33,9 +33,9 @@ def display_table(table):
         print("Empty Table")
         return
     
-    print("="*40)
+    print("-"*40)
     print("SrNo Operation Arg1 Arg2 Result")
-    print("="*40)
+    print("-"*40)
 
     for i, line in enumerate(table):
         print(f"{(i + 1):<4} {line[0]:<10} {line[1]:<4} {line[2]:<4} {line[3]} ")
@@ -70,9 +70,12 @@ def optimise(quadtable: list):
 
 def main() -> None: 
     quad = quadruple('./cse.txt')
-    display_table(quad)
     optimised = quad.copy()
     optimise(optimised)
+
+    print(" Input ".center(40, '='))
+    display_table(quad)
+    print("\n\n\n", " Output ".center(40, '='), sep='')
     display_table(optimised)
 
 if __name__ == '__main__':
