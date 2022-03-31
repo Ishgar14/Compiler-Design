@@ -1,0 +1,4 @@
+x = a + b
+a = a + b
+y = a + b
+j = x + y
