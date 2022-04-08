@@ -20,6 +20,11 @@ def quadruple(fname: str) -> list[tuple[str, str, str, str]]:
             elif len(parts) == 1:
                 arg1 = parts[0]
 
+            operation = split('[\da-zA-Z]', line.partition('=')[2])
+            operation = [op for op in operation if op]
+            if operation:
+                operation = operation[0]
+
             lines.append((
                 operation or '=',
                 arg1,
