@@ -62,8 +62,10 @@ def start(tab: list[tuple[str, str, str, str]]):
         if arg1.isnumeric():
             if arg2.isnumeric():
                 mapping[result] = str(int(arg1) + int(arg2))
-            else:
+            elif arg2 == '':
                 mapping[result] = arg1
+            elif result in mapping:
+                    del mapping[result]
 
         if result in mapping:
             tab[i] = ('=', mapping[result], '', result)

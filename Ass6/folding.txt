@@ -3,6 +3,7 @@ y = 20
 
 a = x + y
 a = a + x
+a = a + n
 b = 5 + a
 
 p = q + x
